@@ -2,7 +2,7 @@
 - hosts: all
   vars:
     mfts_hostname: ipxhost
-    mfts_sshd_listen_hostprefix: 10.1.200.61
+    mfts_sshd_listen_hostprefix: 192.168.100.1
     mfts_additional_packages:
       - locales
       - dnsmasq

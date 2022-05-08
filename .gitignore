@@ -1,0 +1,6 @@
+files/*.deb
+tests/**
+*~
+logs/**
+*.retry
+roles/**

@@ -1,0 +1,24 @@
+---
+- hosts: all
+  vars:
+    mfts_hostname: ipxhost
+    mfts_sshd_listen_hostprefix: 10.1.200.61
+    mfts_additional_packages:
+      - locales
+      - dnsmasq
+      - nginx
+      - rsync
+      - pxelinux
+      - syslinux-common
+    mfts_removal_packages: []
+    mfts_copy_files:
+      - { src: "{{ inventory_dir }}/files/etc.dnsmasq.resolv.conf", dest: "/etc/dnsmasq.resolv.conf", owner: "root", group: "root", mode: "0644" }
+      - { src: "{{ inventory_dir }}/files/app.ub2204.pxelinux.cfg.default", dest: "/app/ub2204/pxelinux.cfg/default", owner: "root", group: "root", mode: "0644" }
+      - { src: "{{ inventory_dir }}/files/etc.nginx.conf.d.ub2204.conf", dest: "/etc/nginx/conf.d/ub2204.conf", owner: "root", group: "root", mode: "0644" }
+      - { src: "{{ inventory_dir }}/files/etc.dnsmasq.d.ipxe.conf", dest: "/etc/dnsmasq.d/ipxe.conf", owner: "root", group: "root", mode: "0644" }
+      - { src: "{{ inventory_dir }}/files/app.www.user-data", dest: "/app/www/user-data", owner: "root", group: "root", mode: "0644" }
+      - { src: "{{ inventory_dir }}/files/app.www.meta-data", dest: "/app/www/meta-data", owner: "root", group: "root", mode: "0644" }
+      - { src: "{{ inventory_dir }}/files/etc.netplan.ens1sp0.yaml", dest: "/etc/netplan/ens1sp0.yaml", owner: "root", group: "root", mode: "0644" }
+      - { src: "{{ inventory_dir }}/files/etc.netplan.ens3sp0.yaml", dest: "/etc/netplan/ens3sp0.yaml", owner: "root", group: "root", mode: "0644" }
+  roles:
+    - YasuhiroABE.myfavorite-setting

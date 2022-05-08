@@ -1,0 +1,4 @@
+
+[ts]
+192.168.1.233 ansible_python_interpreter=/usr/bin/python3
+

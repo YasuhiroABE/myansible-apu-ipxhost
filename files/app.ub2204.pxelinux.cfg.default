@@ -1,0 +1,10 @@
+
+prompt 0
+timeout 1
+
+default install
+
+label install
+  kernel casper/vmlinuz
+  initrd casper/initrd
+  append ip=dhcp cloud-config-url=/dev/null url=http://192.168.100.1/ubuntu-22.04-live-server-amd64.iso autoinstall ds=nocloud-net;s=http://192.168.100.1/ quiet --- console=ttyS0,115200n8
